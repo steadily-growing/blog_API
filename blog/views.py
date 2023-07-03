@@ -3,10 +3,6 @@ from rest_framework.response import Response
 from .models import Blog
 from .serializers import BlogSerializer
 
-class LandingPage(APIView):
-    def get(self, request):
-        s = {'message' : 'Welcome', 'documentation' : '<specify notes>'}
-        return Response(s)
 
 class BlogAPIView(APIView): 
     def get(self, request):  
