@@ -1,7 +1,7 @@
 from django.urls import path
-from .views import BlogAPIView
+from .views import BlogView
 
 urlpatterns = [
-    path('blogs/', BlogAPIView.as_view(), name='blog-list'),  # For GET request
-    path('blogs/', BlogAPIView.as_view(), name='blog-create'),  # For POST request
+    path('blogs/', BlogView.as_view(), name='blog-list'),  # For GET request
+    path('blogs/add', BlogView.as_view(), name='blog-create'),  # For POST request
 ]
