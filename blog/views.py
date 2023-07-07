@@ -3,6 +3,8 @@ from rest_framework.response import Response
 from .models import Blog
 from .serializers import BlogSerializer
 from django.shortcuts import get_object_or_404
+from django.core.exceptions import ObjectDoesNotExist
+
 
 
 
@@ -25,13 +27,14 @@ class BlogView(APIView):
         return Response(serializer.errors, status=400)
 
 
+
 class BlogByIdView(APIView):
     def get_blog(self, id):
         try:
-            return Blogs.object.get(id=id) 
-        except Blogs.DoesNotExist as e:
-            import pdb; pdb.set_trace();
+            return Blog.objects.get(id=id)
+        except ObjectDoesNotExist:
             return Response({"error": "Not found."}, status=404)
+
 
     # View one blog by id
     def get(self, request, id=None):
