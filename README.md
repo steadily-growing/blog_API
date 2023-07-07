@@ -5,6 +5,6 @@
 - A user can view one post
 - A user can view all posts
 
-# # future developmeny
+## future developmeny
 - Auth
 - Tests
