@@ -44,7 +44,7 @@ class BlogByIdView(APIView):
             return Response(serializer.data, status=200)
         return Response({"error": "Not found."}, status=404)
 
-    # Update blog
+    # Update blog by id
     def put(self, request, id=None):
         data = request.data
         blog_instance = self.get_blog(id)
@@ -54,7 +54,7 @@ class BlogByIdView(APIView):
             return Response(serializer.data, status=200)
         return Response(serializer.errors, status=400)
 
-    # Delete blog
+    # Delete blog by id
     def delete(self, request, id=None):
         blog_instance = self.get_blog(id)
         if blog_instance:
